@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ParkList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getParks($event)"
+        (ionClear)="resetList($event)">
+      </ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let park of parks" (click)="goParkDetails(park)" detail-push>
+        <ion-thumbnail slot="start">
+          <img src="assests/img/thumbs/{{park.image}}">
+        </ion-thumbnail>
+        <ion-label>
+        {{park.name}} {{park.state}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
