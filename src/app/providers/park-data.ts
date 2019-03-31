@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class ParkData {
     data: any = null;
     constructor(public http: Http) {}
-    
+
     load() {
         if (this.data) {
             return Promise.resolve(this.data);
@@ -27,7 +27,7 @@ export class ParkData {
 
             for (let thePark of Parks){
                 if (thePark.name.toLowerCase().indexOf(queryString.toLowerCase())
-                > -1) {theFilteredParks.push(thepark);
+                > -1) {theFilteredParks.push(thePark);
                 }
             }
             return theFilteredParks;
@@ -37,7 +37,7 @@ export class ParkData {
                 this.parks = theResult;
             })
         }
-    }
+    }*/
 
     
 }
