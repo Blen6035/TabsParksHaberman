@@ -5,7 +5,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ParkData {
     data: any = null;
-    constructor(public http: Http) {}
+
+    constructor(public http: Http) {
+
+    }
 
     load() {
         if (this.data) {
@@ -21,23 +24,39 @@ export class ParkData {
                 });
         });
     }
-    getFilteredParks(queryString){
-        return this.load().then(Parks => {
-            let theFilteredParks: any = [];
+    getParks(){
+        return this.load().then( data => {
+            return data;
+        });
+    }
 
-            for (let thePark of Parks){
+    getPark ( id ){
+        let park = "NOT FOUND";
+        for( let i = 0; i < this.data.length; i++){
+            if( this.data[i].id == id){
+                park = this.data[i];
+            }
+        }
+        return park;
+    }
+    getFilteredParks( queryString ){
+        return this.load().then( theParks => {
+            let filteredParks: any = [];
+
+            for (let thePark of theParks){
                 if (thePark.name.toLowerCase().indexOf(queryString.toLowerCase())
-                > -1) {theFilteredParks.push(thePark);
+                > -1) { filteredParks.push(thePark);
                 }
             }
-            return theFilteredParks;
-        });
-        resetList(event) {
-            this.parkData.getParks().then(theResult => {
-                this.parks = theResult;
-            })
-        }
-    }*/
+            return filteredParks;
+        })
 
+    }
+
+    resetList(event) {
+        this.parkData.getParks().then(theResult => {
+            this.parks = theResult;
+        })
+    }
     
 }

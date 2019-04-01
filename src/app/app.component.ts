@@ -29,9 +29,9 @@ export class AppComponent {
     this.parkData.load();
   }
 
-  getParks() {
+  /*getParks() {
     return this.load().then(data => {
       return data;
     });
-  }
+  }*/
 }
