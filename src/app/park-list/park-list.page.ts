@@ -12,7 +12,7 @@ export class ParkListPage {
   parks: Array<Park> = []
   searchQuery: string = '';
 
-  constructor(public NavCtrl: NavController, public parkData: ParkData, public router: Router) {
+  constructor(public parkData: ParkData, public router: Router) {
     ParkData.getParks().then(theResult => {
       this.parks = theResult;
     })
