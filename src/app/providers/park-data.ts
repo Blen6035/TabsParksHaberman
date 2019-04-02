@@ -53,10 +53,10 @@ export class ParkData {
 
     }
 
-    resetList(event) {
+    /*resetList(event) {
         this.parkData.getParks().then(theResult => {
             this.parks = theResult;
         })
-    }
+    }*/
     
 }
